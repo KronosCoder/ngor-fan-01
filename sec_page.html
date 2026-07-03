@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ถึงแครอทแฟนพี่ ~ 🥕</title>
+  <meta name="description" content="ดีกันได้มั้ยนะ 🥺" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Sarabun:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+  <style>
+    .p2-scene {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      padding: 1.2rem;
+    }
+
+    .p2-card {
+      overflow: hidden;
+      background: var(--light);
+      border: 2.5px solid var(--dark);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.6rem, 5vw, 2.4rem) clamp(1.6rem, 6vw, 2.4rem) clamp(1.8rem, 5vw, 2.6rem);
+      max-width: min(440px, calc(100vw - 2rem));
+      width: 100%;
+      text-align: center;
+      box-shadow: 4px 4px 0 var(--dark);
+      position: relative;
+      animation: cardIn 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.94);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* top accent bar */
+    .p2-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--primary);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    /* ---- GIF display ---- */
+    .p2-gif-area {
+      margin-bottom: 1.2rem;
+      transition: opacity 0.32s ease;
+    }
+
+    .p2-gif-frame {
+      display: inline-block;
+      background: var(--bg);
+      border: 2px solid var(--dark);
+      border-radius: var(--radius-md);
+      box-shadow: 3px 3px 0 var(--dark);
+      overflow: hidden;
+      line-height: 0;
+      transition: opacity 0.32s ease;
+    }
+
+    .p2-gif-img {
+      display: block;
+      width: clamp(140px, 42vw, 200px);
+      height: clamp(140px, 42vw, 200px);
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ---- State-based emoji animations ---- */
+    .anim-sad .p2-emoji-main {
+      animation: sadBob 2.4s ease-in-out infinite;
+    }
+
+    .anim-sad .p2-emoji-sub {
+      animation: tearDrip 1.6s ease-in infinite;
+    }
+
+    .anim-wobble .p2-emoji-main {
+      animation: wobble 0.75s ease-in-out infinite;
+    }
+
+    .anim-bounce .p2-emoji-main {
+      animation: bounce 0.65s ease-in-out infinite;
+    }
+
+    .anim-shake .p2-emoji-main {
+      animation: shake 0.32s ease-in-out infinite;
+    }
+
+    .anim-shake .p2-emoji-sub {
+      animation: shake 0.32s ease-in-out 0.16s infinite;
+    }
+
+    .anim-pulse .p2-emoji-main {
+      animation: pulse 1.1s ease-in-out infinite;
+    }
+
+    .anim-pulse .p2-emoji-sub {
+      animation: pulse 1.1s ease-in-out 0.55s infinite;
+    }
+
+    .anim-celebrate .p2-emoji-main {
+      animation: celebPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both, bounce 0.7s ease-in-out 0.5s infinite;
+    }
+
+    .anim-celebrate .p2-emoji-sub {
+      animation: pulse 0.8s ease-in-out infinite;
+    }
+
+    @keyframes sadBob {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-3deg);
+      }
+
+      50% {
+        transform: translateY(-7px) rotate(3deg);
+      }
+    }
+
+    @keyframes tearDrip {
+      0% {
+        opacity: 0;
+        transform: translateY(-6px) scale(0.6);
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(14px) scale(1.1);
+      }
+    }
+
+    @keyframes wobble {
+
+      0%,
+      100% {
+        transform: rotate(-11deg) scale(1);
+      }
+
+      50% {
+        transform: rotate(11deg) scale(1.06);
+      }
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes shake {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      25% {
+        transform: translateX(-6px);
+      }
+
+      75% {
+        transform: translateX(6px);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes celebPop {
+      from {
+        transform: scale(0.4) rotate(-20deg);
+        opacity: 0.3;
+      }
+
+      to {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+    }
+
+    /* ---- Sentence ---- */
+    .p2-sentence {
+      font-family: var(--font-head);
+      font-size: clamp(0.9rem, 3.8vw, 1.1rem);
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 2;
+      margin-bottom: 1.6rem;
+      transition: opacity 0.32s ease;
+    }
+
+    /* ---- Button area ---- */
+    .p2-btn-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      overflow: visible;
+      transition: opacity 0.4s ease;
+      min-height: 52px;
+    }
+
+    .p2-btn {
+      font-family: var(--font-head);
+      font-size: clamp(0.88rem, 3.5vw, 1rem);
+      font-weight: 500;
+      border: 2px solid var(--dark);
+      border-radius: var(--radius-md);
+      padding: 0.65rem 1.35rem;
+      cursor: pointer;
+      white-space: nowrap;
+      -webkit-tap-highlight-color: transparent;
+      transition:
+        transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.4s ease,
+        box-shadow 0.2s ease,
+        font-size 0.4s ease,
+        padding 0.4s ease;
+    }
+
+    /* Yes */
+    .p2-btn-yes {
+      background: var(--primary);
+      color: var(--light);
+      box-shadow: 3px 3px 0 var(--dark);
+      flex-shrink: 0;
+    }
+
+    .p2-btn-yes:hover,
+    .p2-btn-yes:active {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--dark);
+    }
+
+    /* Yes — big mode after all 4 nos */
+    .p2-btn-yes--big {
+      font-size: clamp(1.15rem, 5vw, 1.5rem) !important;
+      padding: 1rem 2.6rem !important;
+      box-shadow: 5px 5px 0 var(--dark) !important;
+      animation: bigYesPulse 1.3s ease-in-out infinite;
+    }
+
+    .p2-btn-yes--big:hover,
+    .p2-btn-yes--big:active {
+      animation-play-state: paused;
+      transform: translate(-3px, -3px) !important;
+      box-shadow: 8px 8px 0 var(--dark) !important;
+    }
+
+    @keyframes bigYesPulse {
+
+      0%,
+      100% {
+        transform: scale(1) translate(0, 0);
+        box-shadow: 5px 5px 0 var(--dark);
+      }
+
+      50% {
+        transform: scale(1.05) translate(-1px, -1px);
+        box-shadow: 7px 7px 0 var(--dark);
+      }
+    }
+
+    /* No */
+    .p2-btn-no {
+      background: var(--bg);
+      color: var(--mid);
+      transform-origin: center center;
+    }
+
+    .p2-btn-no:hover {
+      background: #FFE4EC;
+    }
+
+    /* ---- Celebration particles ---- */
+    .celeb-particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99;
+      overflow: hidden;
+    }
+
+    .celeb-particle {
+      position: absolute;
+      bottom: -8%;
+      left: var(--x, 50%);
+      font-size: var(--size, 1.2rem);
+      opacity: 0;
+      animation: particleRise var(--dur, 2.2s) var(--delay, 0s) ease-out forwards;
+    }
+
+    @keyframes particleRise {
+      0% {
+        opacity: 0;
+        bottom: -5%;
+        transform: rotate(0deg) scale(0.6);
+      }
+
+      8% {
+        opacity: 1;
+      }
+
+      88% {
+        opacity: 0.8;
+      }
+
+      100% {
+        opacity: 0;
+        bottom: 112%;
+        transform: rotate(var(--rot, 240deg)) scale(1.1);
+      }
+    }
+
+    /* ---- Back link ---- */
+    .p2-back {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 10;
+      font-family: var(--font-head);
+      font-size: 0.75rem;
+      color: var(--mid);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1.5px solid var(--accent);
+      padding: 0.28rem 0.7rem;
+      border-radius: 50px;
+      opacity: 0.65;
+      transition: opacity 0.2s;
+    }
+
+    .p2-back:hover {
+      opacity: 1;
+    }
+
+    .yes-extra {
+      margin-top: 1rem;
+      font-family: var(--font-head);
+      font-size: clamp(0.78rem, 3vw, 0.92rem);
+      color: var(--mid);
+      line-height: 1.8;
+      animation: fadeInUp 0.6s ease 0.8s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (orientation: landscape) and (max-height: 520px) {
+      .p2-emoji-display {
+        width: clamp(80px, 18vw, 110px);
+        height: clamp(80px, 18vw, 110px);
+      }
+
+      .p2-emoji-main {
+        font-size: clamp(2rem, 7vw, 2.8rem);
+      }
+
+      .p2-card {
+        padding: 1rem 1.2rem 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        text-align: left;
+      }
+
+      .p2-gif-area {
+        margin-bottom: 0;
+        flex-shrink: 0;
+      }
+
+      .p2-card::before {
+        right: auto;
+        bottom: 0;
+        top: 0;
+        width: 5px;
+        height: auto;
+        border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+  </div>
+
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <div id="celebParticles" class="celeb-particles"></div>
+
+  <a href="index.html" class="p2-back" aria-label="กลับไปอ่านจดหมาย">
+    << จดหมาย</a>
+
+      <main class="p2-scene">
+        <div class="p2-card" id="p2Card">
+
+          <!-- GIF display -->
+          <div class="p2-gif-area" id="gifArea">
+            <div class="p2-gif-frame" id="gifFrame">
+              <img class="p2-gif-img" id="gifImg" src="./gif/Cat Lick Sticker by Capoo.gif" alt="Capoo sad" />
+            </div>
+          </div>
+
+          <!-- Sentence -->
+          <p class="p2-sentence" id="sentence">
+            ขอโทษนะ...<br>ดีกันนะแฟนพี่ ~ 🥺
+          </p>
+
+          <!-- Buttons -->
+          <div class="p2-btn-area" id="btnArea">
+            <button class="p2-btn p2-btn-yes" id="btnYes" onclick="onYes()">
+              ดีกัน 💝
+            </button>
+            <button class="p2-btn p2-btn-no" id="btnNo" onclick="onNo()">
+              ไม่เอา
+            </button>
+          </div>
+
+          <!-- Yes extra message (injected by JS) -->
+          <div id="yesExtra"></div>
+
+        </div>
+      </main>
+
+      <script>
+        /* ---- Ambient particles ---- */
+        const AMB = ['🌸', '💕', '🌷', '💗', '🥕', '🥕', '🥕', '🥕', '🥕'];
+        (function () {
+          const c = document.getElementById('particles');
+          if (!c) return;
+          for (let i = 0; i < 14; i++) {
+            const el = document.createElement('span');
+            el.className = 'particle';
+            el.textContent = AMB[Math.floor(Math.random() * AMB.length)];
+            el.style.setProperty('--x', (Math.random() * 100) + 'vw');
+            el.style.setProperty('--dur', (6 + Math.random() * 7) + 's');
+            el.style.setProperty('--delay', (Math.random() * 9) + 's');
+            el.style.fontSize = (0.65 + Math.random() * 0.7) + 'rem';
+            c.appendChild(el);
+          }
+        })();
+
+        const STATES = [
+          null,
+          {
+            gif: './gif/Shocked Loading Sticker by Capoo.gif',
+            text: 'ยังไม่ยอมดีกันเลยเหรอ...<br>พี่จะร้องไห้แล้วนะะ 😭'
+          },
+          {
+            gif: './gif/Blush Sticker by Capoo.gif',
+            text: 'ขอร้องได้ไหมม...<br>ดีกันเถอะนะะ ได้โปรดด'
+          },
+          {
+            gif: './gif/Bugcat Cry Sad GIF by Capoo.gif',
+            text: 'แฟนพี่โหดจังเลยย<br>พี่ร้องไห้อยู่นะะ 😭'
+          },
+          {
+            gif: './gif/Sad Cat Sticker by Capoo.gif',
+            text: 'ขอร้องล่ะนะะแครอทของพี่ ~<br> ฮืออ 😭'
+          },
+        ];
+
+        const YES_STATE = {
+          gif: './gif/Bugcat Love Sticker by Capoo.gif',
+          text: 'ดีกันแล้วววว!!! 🎉<br>รักหนูมากเลยนะ 💗🥕'
+        };
+
+
+        const NO_SHRINK = [
+          { scale: 0.75, tx: 24, ty: -14 },
+          { scale: 0.50, tx: -34, ty: 22 },
+          { scale: 0.27, tx: 40, ty: -26 },
+        ];
+
+        let noCount = 0;
+
+        /* ---- Content transition ---- */
+        function setContent(stateObj) {
+          const frame = document.getElementById('gifFrame');
+          const sentence = document.getElementById('sentence');
+
+          frame.style.opacity = '0';
+          sentence.style.opacity = '0';
+
+          setTimeout(() => {
+            document.getElementById('gifImg').src = stateObj.gif;
+            sentence.innerHTML = stateObj.text;
+            frame.style.opacity = '1';
+            sentence.style.opacity = '1';
+          }, 330);
+        }
+
+        function onNo() {
+          if (noCount >= 4) return;
+          noCount++;
+
+          setContent(STATES[noCount]);
+
+          const btn = document.getElementById('btnNo');
+
+          if (noCount >= 4) {
+            btn.style.transform = 'scale(0)';
+            btn.style.opacity = '0';
+            btn.style.pointerEvents = 'none';
+
+            setTimeout(() => {
+              btn.style.display = 'none';
+              document.getElementById('btnYes').classList.add('p2-btn-yes--big');
+            }, 500);
+
+          } else {
+            const s = NO_SHRINK[noCount - 1];
+            btn.style.transform = `translate(${s.tx}px, ${s.ty}px) scale(${s.scale})`;
+          }
+        }
+
+        function onYes() {
+          const btnArea = document.getElementById('btnArea');
+
+          setContent(YES_STATE);
+
+          btnArea.style.transition = 'opacity 0.4s ease';
+          btnArea.style.opacity = '0';
+
+          setTimeout(() => {
+            btnArea.style.display = 'none';
+
+            const extra = document.getElementById('yesExtra');
+            extra.className = 'yes-extra';
+            extra.innerHTML = 'ขอบคุณนะที่ยอมดีกันน ~';
+
+            launchParticles();
+          }, 420);
+        }
+
+        function launchParticles() {
+          const container = document.getElementById('celebParticles');
+          const symbols = ['💗', '🥕', '💕', '💗', '🥕', '💗', '🌸', '🥕', '💗'];
+          const count = 24;
+
+          for (let i = 0; i < count; i++) {
+            const el = document.createElement('span');
+            el.className = 'celeb-particle';
+            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+            el.style.setProperty('--x', (Math.random() * 92) + 'vw');
+            el.style.setProperty('--dur', (1.2 + Math.random() * 1.4) + 's');
+            el.style.setProperty('--delay', (Math.random() * 0.8) + 's');
+            el.style.setProperty('--size', (1 + Math.random() * 1.2) + 'rem');
+            el.style.setProperty('--rot', ((Math.random() - 0.5) * 360) + 'deg');
+
+            container.appendChild(el);
+          }
+        }
+      </script>
+
+</body>
+
+</html>

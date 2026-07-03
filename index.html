@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ถึงแครอทแฟนพี่ ~ 🥕</title>
+  <meta name="description" content="จดหมายพิเศษจากใจ ถึงคนที่รักมากที่สุด" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Sarabun:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+  <!-- Flat geometric background blobs -->
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+  </div>
+
+  <!-- Floating emoji particles -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- Main scene -->
+  <main class="scene" id="scene">
+
+    <!-- Hint chip -->
+    <p class="hint-text" id="hintText">
+      มีอะไรจะบอกแฟน ~
+    </p>
+
+    <!-- Envelope card -->
+    <div class="envelope-wrapper" id="envelopeWrapper" onclick="openLetter()" role="button" tabindex="0"
+      aria-label="เปิดจดหมาย">
+      <div class="envelope" id="envelope">
+
+        <div class="env-flap"></div>
+        <div class="env-side env-side--left"></div>
+        <div class="env-side env-side--right"></div>
+        <div class="env-bottom"></div>
+
+        <!-- Stamp (top-right) -->
+        <div class="env-stamp" aria-hidden="true">
+          <span class="env-stamp-icon">💗</span>
+          <span class="env-stamp-val">LOVE U</span>
+        </div>
+
+        <!-- Wax seal at fold center -->
+        <div class="env-seal" aria-hidden="true">♥</div>
+
+        <!-- Address block (lower body area) -->
+        <div class="env-address">
+          <!-- <p class="env-addr-from">จาก : หมาแก่ผู้น่าสงสาร</p> -->
+          <p class="env-addr-to">ถึง : แครอทแฟนพี่ 🥕</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="letter-container" id="letterContainer" aria-live="polite">
+      <div class="letter-paper" id="letterPaper">
+        <!-- Header -->
+        <div class="letter-header">
+          <div class="letter-icon" aria-hidden="true">♥</div>
+          <div>
+            <h1 class="letter-title">จดหมายง้อแฟนน</h1>
+            <p class="letter-subtitle">จากหมาแก่ของหนูไง ~</p>
+          </div>
+        </div>
+
+
+        <!-- Body -->
+        <div class="letter-body">
+          <div class="letter-tag"># ขอโทษ</div>
+          <div class="letter-tag"># พี่ผิดไปแล้ว</div>
+          <div class="letter-tag"># โปรดแฟนจ๋าให้อภัย</div>
+
+          <p class="letter-greeting">ถึง แครอทที่น่ารักน่ากอดน่าจุ๊บน่า..ของพี่</p>
+
+          <p>
+            คืนนี้พี่ผิดเองพี่อาจจะ Over ไปหน่อย<br />
+            และที่ทำต้องให้เรามาทะเลาะกันอีกครั้งแล้ว
+          </p>
+
+          <p>
+            หนูทำงานมาเหนื่อยๆไม่น่ามาเจอเรื่องแบบนี้เลย<br />
+            อยากจะเป็น Safe zone ให้แฟนแต่พี่ก็เริ่มทำตัวคิดมากซะเอง
+          </p>
+
+          <div class="letter-callout">
+            <p>พี่อยากจะบอกว่า…<br />พี่ขอโทษนะที่ทำให้หนูเหนื่อย ที่ต้องอธิบายอะไรซ้ำ ๆ และขอโทษที่สงสัยในตัวหนูนะ
+              จิตพี่มันปรุงแต่งจนลืมไปเลยว่า..
+              แฟนพี่ซื่อสัตย์และจริงใจมาตลอดไม่เคยโกหก แต่เป็นพี่เองที่ยังคงคิดมาก
+              แต่จะพยายามไม่คิดมากแล้วนะสัญญาเลยครั้งนี้มีอะไรพี่จะถามตรงๆ
+              ไม่คิดไปเองแล้วและจะเชื่อใจหนูเชื่อในสิ่งที่เห็นเสมอนะ<br />
+              <em>"รักหนูนะอยากให้หนูเป็นคนแรกและคนเดียวของพี่"</em>
+            </p>
+          </div>
+
+          <div class="letter-emoji-row" aria-hidden="true">🌸 🐰🥕 🌸</div>
+
+          <p>
+            ป.ล. แต่ยังไงพี่ก็หวงหนูเสมอนะไม่ใช่เพราะไม่ไว้ใจ แต่เพราะรักสุดหัวใจน่ะ หวงแฟนมากๆๆๆๆนะ TvT<br />
+            รักมากๆเลยนะ แครอทของพี่ 🤍
+          </p>
+
+          <p>ปล.2 อยากจะเขียนยาวๆให้หนูอ่านแต่พี่ไม่เก่งเรื่องการใช้คำพูดเลย.. ขอโทษอีกครั้งนะะ >
+            <<br />
+          </p>
+
+          <p class="letter-sign">
+            ด้วยรัก,<br />
+            <strong>คนที่รักหนูมากกและมีแค่หนูในใจ</strong>
+          </p>
+
+        </div>
+        <!-- /letter body -->
+
+        <button class="next-btn" id="nextBtn" onclick="goToNext()">
+          ไปหน้าต่อไป >>
+        </button>
+
+      </div>
+    </div>
+    <!-- /letter container -->
+
+  </main>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
